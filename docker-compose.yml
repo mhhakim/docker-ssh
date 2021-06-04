@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ssh:
+    image: ssh:latest
+    container_name: ssh
+    build: .
+    ports:
+      - 222:22
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+networks:
+  default:
+    external:
+      name: root
